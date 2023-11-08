@@ -11,6 +11,10 @@ public class Customer implements Runnable {
         return bankAccount.getAmount();
     }
 
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
     @Override
     public void run() {
         System.out.println("Customer performing a deposit: " + getAmount());
