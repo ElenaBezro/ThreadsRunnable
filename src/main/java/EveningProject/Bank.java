@@ -2,9 +2,17 @@ package EveningProject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Bank {
-    List<BankAccount> accountList = new ArrayList<>();
+    private List<BankAccount> accountList;
+    private ExecutorService executor;
+
+    public Bank() {
+        this.accountList = new ArrayList<>();
+        this.executor = Executors.newFixedThreadPool(5);
+    }
 
     public void addBankAccount(BankAccount account) {
         accountList.add(account);
