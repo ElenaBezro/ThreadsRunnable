@@ -17,15 +17,19 @@ class BankAccount {
 
     public synchronized void deposit(int amount) {
         transactionProcessing.setDepositTransaction();
-        transactionProcessing.process(details.getBalance(), amount, accountNumber);
+        transactionProcessing.process(details, amount, accountNumber);
     }
 
     public synchronized void withdraw(int amount) {
         transactionProcessing.setWithdrawalTransaction();
-        transactionProcessing.process(details.getBalance(), amount, accountNumber);
+        transactionProcessing.process(details, amount, accountNumber);
     }
 
     public synchronized int getBalance() {
         return details.getBalance();
+    }
+
+    public void setBalance(int balance) {
+        details.setBalance(balance);
     }
 }

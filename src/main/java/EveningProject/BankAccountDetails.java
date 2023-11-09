@@ -8,6 +8,10 @@ public class BankAccountDetails {
 
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
     public synchronized int getBalance() {
         return balance;
     }

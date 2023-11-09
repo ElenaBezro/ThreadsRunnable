@@ -1,5 +1,5 @@
 package EveningProject;
 
 public interface Transaction {
-    public void process(int balance, int amount, int accountNumber);
+    public void process(BankAccountDetails details, int amount, int accountNumber);
 }

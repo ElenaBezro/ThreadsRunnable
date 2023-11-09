@@ -16,7 +16,7 @@ public class BankAccountTransactionProcessing {
         this.transaction = new Withdrawal();
     }
 
-    public void process(int balance, int amount, int accountNumber){
-        transaction.process(balance, amount, accountNumber);
+    public void process(BankAccountDetails details, int amount, int accountNumber){
+        transaction.process(details, amount, accountNumber);
     }
 }
