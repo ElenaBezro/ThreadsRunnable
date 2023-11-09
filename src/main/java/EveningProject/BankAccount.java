@@ -4,6 +4,8 @@ class BankAccount {
     private int accountNumber;
     private BankAccountDetails details;
     private BankAccountTransactionProcessing transactionProcessing;
+    private BankAccountDepositProcessing depositProcessing;
+
 
     public int getAccountNumber() {
         return accountNumber;
@@ -17,12 +19,12 @@ class BankAccount {
 
     public synchronized void deposit(int amount) {
         transactionProcessing.setDepositTransaction();
-        transactionProcessing.process(details, amount, accountNumber);
+        String transaction = "deposit";
+        transactionProcessing.process(details, amount, accountNumber, transaction);
     }
 
     public synchronized void withdraw(int amount) {
-        transactionProcessing.setWithdrawalTransaction();
-        transactionProcessing.process(details, amount, accountNumber);
+        depositProcessing.process(details, amount, accountNumber);
     }
 
     public synchronized int getBalance() {

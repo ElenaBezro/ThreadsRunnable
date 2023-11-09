@@ -1,6 +1,6 @@
 package EveningProject;
 
-public class Deposit implements Transaction {
+public class Deposit implements Depositable {
     @Override
     public void process(BankAccountDetails details, int amount, int accountNumber) {
         if (amount > 0) {
