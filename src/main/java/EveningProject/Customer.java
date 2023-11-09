@@ -1,25 +1,24 @@
 package EveningProject;
+import java.util.concurrent.ExecutorService;
 
-public class Customer implements Runnable {
-    private BankAccount bankAccount;
+// Exercise 1
+class Customer implements Runnable {
+    private final ExecutorService executor;
+    private BankAccount account;
+    private String name;
+    private int depositAmount;
 
-    public Customer(double amount) {
-        bankAccount = new BankAccount(amount);
-    }
-
-    public double getAmount() {
-        return bankAccount.getAmount();
-    }
-
-    public BankAccount getBankAccount() {
-        return bankAccount;
+    public Customer(BankAccount account, String name, int depositAmount, ExecutorService executor) {
+        this.account = account;
+        this.name = name;
+        this.depositAmount = depositAmount;
+        this.executor = executor;
     }
 
     @Override
     public void run() {
-        System.out.println("Customer performing a deposit: " + getAmount());
-        bankAccount.deposit(getAmount());
+        System.out.println(name + " is depositing $" + depositAmount);
+        executor.submit(() -> account.deposit(depositAmount));
+        System.out.println(name + "'s new balance: $" + account.getBalance());
     }
-
-
 }

@@ -1,16 +1,17 @@
 package EveningProject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Bank {
+public class BankWithCachedThreadPool {
     private List<BankAccount> accounts;
     private ExecutorService executor;
 
-    public Bank() {
+    public BankWithCachedThreadPool() {
         this.accounts = new ArrayList<>();
-        this.executor = Executors.newFixedThreadPool(5);
+        this.executor = Executors.newCachedThreadPool();
     }
 
     public void addAccount(int accountNumber, int initialBalance) {

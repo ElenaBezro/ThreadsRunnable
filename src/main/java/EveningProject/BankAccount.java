@@ -1,26 +1,31 @@
 package EveningProject;
 
-public class BankAccount  {
-    private double amount;
+class BankAccount {
+    private int accountNumber;
+    private BankAccountDetails details;
+    private BankAccountTransactionProcessing transactionProcessing;
 
-    public BankAccount(double amount) {
-        this.amount = amount;
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
-    public double getAmount() {
-        return amount;
+    public BankAccount(int accountNumber, int initialBalance) {
+        this.accountNumber = accountNumber;
+        this.details = new BankAccountDetails(initialBalance);
+        this.transactionProcessing = new BankAccountTransactionProcessing();
     }
 
-    public void deposit(double amount) {
-        this.amount += amount;
+    public synchronized void deposit(int amount) {
+        transactionProcessing.setDepositTransaction();
+        transactionProcessing.process(details.getBalance(), amount, accountNumber);
     }
 
-    public void withdraw(double amount) {
-        if (this.amount >= amount) {
-            this.amount -= amount;
-        }
-        else {
-            System.out.println("Not enough amount!");
-        }
+    public synchronized void withdraw(int amount) {
+        transactionProcessing.setWithdrawalTransaction();
+        transactionProcessing.process(details.getBalance(), amount, accountNumber);
+    }
+
+    public synchronized int getBalance() {
+        return details.getBalance();
     }
 }
