@@ -2,8 +2,10 @@ package EveningProject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class ConcurrentBankingSystem {
 
@@ -45,7 +47,7 @@ public class ConcurrentBankingSystem {
         }
         executorService.shutdown();
 
-        //Ex.3
+        //Day 1 Ex.3
         Bank bank = new Bank();
         BankAccount account2 = new BankAccount(8000.0);
         BankAccount account3 = new BankAccount(500.0);
@@ -53,5 +55,22 @@ public class ConcurrentBankingSystem {
         bank.addBankAccount(account1);
         bank.addBankAccount(account2);
         bank.addBankAccount(account3);
+
+        Future<Void> transaction = executorService.submit(() -> {
+            account2.deposit(100);
+            return null;
+        });
+
+        try {
+            transaction.get();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        }
+        executorService.shutdown();
+        executorService1.shutdown();
+
+
     }
 }
