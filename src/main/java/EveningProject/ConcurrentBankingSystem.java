@@ -38,5 +38,29 @@ public class ConcurrentBankingSystem {
         bank.addBankAccount(account2);
         bank.addBankAccount(account3);
 
+        Thread depositThread = new Thread(() -> {
+            account3.deposit(200);
+            account2.deposit(300);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        Thread withdrawThread = new Thread(() -> {
+            account2.withdraw(150);
+            account3.withdraw(250);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        depositThread.start();
+        withdrawThread.start();
+
     }
 }

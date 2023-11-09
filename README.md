@@ -74,8 +74,6 @@ Sub-Task 1.1:
 Create a Customer class that implements Runnable and simulates a
 customer performing a deposit.
 
-Task 1: Creating and Starting Threads
-
 Sub-Task 1.2:
 
 Instantiate and start multiple Customer threads using both the
@@ -88,14 +86,10 @@ Sub-Task 2.1:
 
 Implement a BankAccount class with deposit and withdraw methods.
 
-Task 2: Thread Synchronization
-
 Sub-Task 2.2:
 
 Introduce a race condition by initiating concurrent deposits and
 withdrawals. Observe and discuss inconsistencies.
-
-Task 2: Thread Synchronization
 
 Sub-Task 2.3:
 
@@ -107,8 +101,6 @@ Sub-Task 3.1:
 
 Implement the Bank class, simulating a bank that manages multiple
 BankAccount instances.
-
-Task 3: Hands-on Project: Basic Banking System
 
 Sub-Task 3.2:
 

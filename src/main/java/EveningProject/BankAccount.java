@@ -7,20 +7,25 @@ public class BankAccount  {
         this.amount = amount;
     }
 
-    public double getAmount() {
+    public synchronized double getAmount() {
         return amount;
     }
 
-    public void deposit(double amount) {
-        this.amount += amount;
+    public synchronized void deposit(double amount) {
+        if (amount > 0) {
+            this.amount += amount;
+        }
+        else {
+            System.out.println("Invalid deposit amount.");
+        }
 
     }
-    public void withdraw(double amount) {
-        if (this.amount >= amount) {
+    public synchronized void withdraw(double amount) {
+        if (amount > 0 && this.amount >= amount) {
             this.amount -= amount;
         }
         else {
-            System.out.println("Not enough amount!");
+            System.out.println("Insufficient funds for withdrawal or invalid deposit amount");
         }
     }
 }
