@@ -1,68 +1,68 @@
-Morning session 
-Executor
+Single responsibility
+Exercise 1:
+Imagine a class Dog that barks and eats. Separate these behaviors into two classes: DogSound and DogFood.
 
-Exercise 1: Use Executor to run a task that prints "Hello from Executor!".
-Exercise 2: Use Executor to execute two tasks that print numbers from 1 to 3.
+Exercise 2:
+You have a Student class that calculates grades and prints report cards. Create separate classes for grade calculation and report card printing.
 
-ExecutorService
-Exercise 1: Create an ExecutorService to execute a task that prints "ExecutorService in action!".
-Exercise 2: Use ExecutorService to execute tasks that print out their names ("Task 1", "Task 2").
+Exercise 3:
+Consider a Library class that manages book inventory and handles user memberships. Split these responsibilities into separate classes: BookInventory and UserMembership.
 
-ScheduledExecutorService
-Exercise 1: Schedule a task to print "I'm scheduled!" after 2 seconds.
-Exercise 2: Create a task that prints "Repeating task" every second.
+Exercise 4:
+Imagine a Cafeteria class that prepares food and also handles billing. Split these responsibilities into separate classes: FoodPreparation and Billing.
 
+Open/close
 
-Evening
+Exercise 1:
+Create a class Animal with a method makeSound(). Extend this class to create Dog and Cat classes. Ensure that you can add more animals without changing the Animal class.
 
-Mini project
+Exercise 2:
+You have a Shape class with Circle and Square subclasses. Write a PerimeterCalculator class that can calculate the perimeter of different shapes without modifying existing classes.
 
-Java Util Concurrent and Concurrent Collections.
+Exercise 3:
+Create a Person class with a method introduceYourself(). Extend this class to create Student and Teacher classes, ensuring that introducing new types of people doesn't require modifying the Person class.
 
-Description: Create a mini project that simulates a banking system
+Exercise 4:
+Create a Greeting class with a method sayHello(). Extend this class to create FormalGreeting and CasualGreeting classes, ensuring that adding new greeting styles doesn't require modifying the Greeting class.
 
-Objective: Integrate advanced concurrency tools into the banking
-system.
+Liskov substitution
 
-Task 1: Executor Framework
+Exercise 1:
+Given a class Bird with a method fly(), ensure that subclasses like Penguin and Sparrow can be used interchangeably without causing errors.
 
-Sub-Task 1.1:
+Exercise 2:
+Create a class Student with a method study(). Ensure that subclasses like UndergraduateStudent and GraduateStudent can be used interchangeably with consistent behaviors.
 
-Replace manual thread management with ExecutorService to
-execute Customer transactions.
+Exercise 3:
+You have a Vehicle class with a method startEngine(). Ensure that subclasses like Car and Bicycle (which doesn't have an engine) can be used interchangeably without causing errors.
 
-Task 2: Concurrent Collections
+Exercise 4:
+You have a Flower class with a method bloom(). Ensure that subclasses like Rose and Cactus (which blooms rarely) can be used interchangeably without causing errors.
 
-Sub-Task 2.1:
+Interface segregation
 
-Replace HashMap with ConcurrentHashMap to store BankAccount
-instances.
+Exercise 1:
+Imagine an interface Person with methods study(), work(), and play(). Break it down so that Student and Worker classes can implement only the methods relevant to them.
 
-Task 2: Concurrent Collections
+Exercise 2:
+You have an interface AnimalBehavior with methods fly(), swim(), and run(). Split this interface so that Fish, Bird, and Dog classes don't implement irrelevant methods.
 
-Sub-Task 2.2:
+Exercise 3:
+Imagine a SchoolMember interface with methods attendClasses(), giveLectures(), and payFees(). Break it down into smaller interfaces so that Student and Teacher classes can implement only the methods relevant to them.
 
-Use CopyOnWriteArrayList to maintain a thread-safe transaction
-history.
+Exercise 4:
+You have an ElectronicDevice interface with methods turnOn(), turnOff(), charge(), and playMusic(). Break it down so that Smartphone and TableLamp classes don't have to implement irrelevant methods.
 
-Task 3: Future for Asynchronous Computations
+Dependency Inversion
 
-Sub-Task 3.1:
+Exercise 1:
+You have a Switch class controlling a LightBulb. Refactor it so that the switch can control any device (e.g., Fan, Heater) by depending on an abstraction.
 
-Modify the Bank class to return a Future object for each
-transaction, enabling asynchronous processing.
+Exercise 2:
+Create a BookReader class that reads from a Book. Modify it so that it can read from any source (e.g., Magazine, Newspaper) by depending on an abstraction.
 
-Task 3: Future for Asynchronous Computations
+Exercise 3:
+You have a MusicPlayer class that plays songs from a CD. Modify it so that it can play music from any source (e.g., USB, StreamingService) by depending on an abstraction.
 
-Sub-Task 3.2:
-
-Experiment with retrieving results using get() and handle potential
-exceptions.
-
-Task 4: Hands-on Project: Enhanced Banking System
-
-Sub-Task 4.1:
-
-Test the system under high concurrency and ensure thread safety
-and data consistency.
-
+Exercise 4:
+You have a NotificationSender class that sends notifications via Email. Modify it so that it can send notifications through any medium (e.g., SMS, PushNotification) by depending on an abstraction.
